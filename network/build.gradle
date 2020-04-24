@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -9,7 +9,6 @@ android {
 
 
     defaultConfig {
-        applicationId "nz.co.network"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
