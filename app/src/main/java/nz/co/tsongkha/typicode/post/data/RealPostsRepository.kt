@@ -1,6 +1,6 @@
 package nz.co.tsongkha.typicode.post.data
 
-import nz.co.tsongkha.typicode.post.Post
+import nz.co.tsongkha.typicode.post.domain.Post
 import toothpick.InjectConstructor
 
 @InjectConstructor

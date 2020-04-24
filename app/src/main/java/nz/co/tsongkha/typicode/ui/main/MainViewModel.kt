@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import nz.co.tsongkha.typicode.post.Post
+import nz.co.tsongkha.typicode.post.domain.Post
 import nz.co.tsongkha.typicode.post.data.PostsRepository
 import nz.co.tsongkha.typicode.ui.main.bento.PostItem
 import toothpick.ktp.delegate.inject

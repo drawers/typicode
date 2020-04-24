@@ -1,4 +1,4 @@
-package nz.co.tsongkha.typicode.post
+package nz.co.tsongkha.typicode.post.domain
 
 data class Comment(
     val postId: Int,

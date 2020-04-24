@@ -3,8 +3,8 @@ package nz.co.tsongkha.typicode.post.data
 import nz.co.tsongkha.typicode.network.service.post.CommentDto
 import nz.co.tsongkha.typicode.network.service.post.PostDto
 import nz.co.tsongkha.typicode.network.service.post.PostsService
-import nz.co.tsongkha.typicode.post.Comment
-import nz.co.tsongkha.typicode.post.Post
+import nz.co.tsongkha.typicode.post.domain.Comment
+import nz.co.tsongkha.typicode.post.domain.Post
 import toothpick.InjectConstructor
 
 @InjectConstructor
