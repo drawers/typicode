@@ -1,4 +1,4 @@
-package nz.co.typicode
+package nz.co.tsongkha.typicode
 
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)

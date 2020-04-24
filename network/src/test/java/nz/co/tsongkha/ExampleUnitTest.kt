@@ -1,4 +1,4 @@
-package nz.co.typicode
+package nz.co.tsongkha
 
 import org.junit.Test
 

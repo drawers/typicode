@@ -1,4 +1,4 @@
-package nz.co.typicode.ui.main
+package nz.co.tsongkha.typicode.ui.main
 
 import androidx.lifecycle.ViewModel
 

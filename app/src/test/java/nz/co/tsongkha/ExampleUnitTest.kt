@@ -1,4 +1,4 @@
-package nz.co.network
+package nz.co.tsongkha
 
 import org.junit.Test
 

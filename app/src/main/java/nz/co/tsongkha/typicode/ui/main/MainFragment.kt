@@ -1,4 +1,4 @@
-package nz.co.typicode.ui.main
+package nz.co.tsongkha.typicode.ui.main
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import nz.co.typicode.R
+import nz.co.tsongkha.R
 
 class MainFragment : Fragment() {
 

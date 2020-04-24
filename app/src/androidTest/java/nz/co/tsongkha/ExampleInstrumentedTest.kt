@@ -1,4 +1,4 @@
-package nz.co.typicode
+package nz.co.tsongkha
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

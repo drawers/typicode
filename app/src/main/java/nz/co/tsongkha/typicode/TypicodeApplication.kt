@@ -1,4 +1,4 @@
-package nz.co.typicode
+package nz.co.tsongkha.typicode
 
 import android.app.Application
 import toothpick.ktp.KTP

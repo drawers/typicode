@@ -1,8 +1,9 @@
-package nz.co.typicode
+package nz.co.tsongkha.typicode
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import nz.co.typicode.ui.main.MainFragment
+import nz.co.tsongkha.R
+import nz.co.tsongkha.typicode.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
