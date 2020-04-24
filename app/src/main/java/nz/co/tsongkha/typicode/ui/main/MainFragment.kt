@@ -6,14 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.yelp.android.bento.componentcontrollers.RecyclerViewComponentController
 import com.yelp.android.bento.components.ListComponent
 import nz.co.tsongkha.R
-import nz.co.tsongkha.typicode.post.Post
+import nz.co.tsongkha.typicode.ApplicationScope
+import nz.co.tsongkha.typicode.ViewModelScope
 import nz.co.tsongkha.typicode.ui.main.bento.PostViewHolder
 import nz.co.tsongkha.typicode.ui.main.bento.PostViewProps
+import toothpick.Scope
+import toothpick.ktp.KTP
+import toothpick.ktp.delegate.inject
+import toothpick.smoothie.lifecycle.closeOnDestroy
+import toothpick.smoothie.viewmodel.closeOnViewModelCleared
+import toothpick.smoothie.viewmodel.installViewModelBinding
 
 class MainFragment : Fragment() {
 
@@ -21,9 +27,7 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
-
-    private lateinit var component: ListComponent<Nothing?, PostViewProps>
+    private val viewModel by inject<MainViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,12 +38,16 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-    }
+        KTP.openScope(ApplicationScope::class.java)
+            .openSubScope(ViewModelScope::class.java) { scope: Scope ->
+                scope.installViewModelBinding<MainViewModel>(this)
+                    .closeOnViewModelCleared(this)
+            }
+            .openSubScope(this)
+            .closeOnDestroy(this)
+            .inject(this)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        val recyclerView = requireView().findViewById<RecyclerView>(R.id.recyclerView)
         val controller = RecyclerViewComponentController(recyclerView)
         val component = ListComponent<Nothing?, PostViewProps>(
             null,
@@ -47,10 +55,12 @@ class MainFragment : Fragment() {
         )
         controller.addComponent(component)
 
-        viewModel.posts.observe(this, object: Observer<List<PostViewProps>> {
-            override fun onChanged(t: List<PostViewProps>?) {
-                if (t == null) return
-                component.setData(t)
-            }
+        viewModel.posts.observe(viewLifecycleOwner, Observer { viewProps ->
+            if (viewProps == null) return@Observer
+
+            component.setData(viewProps)
         })
+
+        viewModel.load()
     }
+}

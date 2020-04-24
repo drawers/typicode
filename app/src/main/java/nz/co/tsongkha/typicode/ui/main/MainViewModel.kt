@@ -14,18 +14,22 @@ class MainViewModel : ViewModel() {
 
     private val postsRepository by inject<PostsRepository>()
 
-    init {
+    private val _posts = MutableLiveData<List<PostViewProps>>(null)
 
-    }
+    val posts: LiveData<List<PostViewProps>> = _posts
 
-    lateinit var posts: LiveData<List<PostViewProps>>
-
-    private lateinit var _posts: MutableLiveData<List<Post>>
-
-    suspend fun load() {
+    fun load() {
         viewModelScope.launch {
-            val posts = postsRepository.posts()
+            val posts = postsRepository.posts().map { it.toViewProps() }
             _posts.value = posts
         }
+    }
+
+    private fun Post.toViewProps(): PostViewProps {
+        return PostViewProps(
+            id = id,
+            title = title,
+            body = body
+        )
     }
 }
