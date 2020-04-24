@@ -31,6 +31,17 @@ dependencies {
 
     implementation project(':network')
 
+    implementation 'com.facebook.litho:litho-core:0.34.0'
+    implementation 'com.facebook.litho:litho-widget:0.34.0'
+    kapt 'com.facebook.litho:litho-processor:0.34.0'
+
+    implementation 'com.facebook.litho:litho-sections-core:0.34.0'
+    implementation 'com.facebook.litho:litho-sections-widget:0.34.0'
+    compileOnly 'com.facebook.litho:litho-sections-annotations:0.34.0'
+    kapt 'com.facebook.litho:litho-sections-processor:0.34.0'
+    implementation 'com.facebook.soloader:soloader:0.5.1'
+
+
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
