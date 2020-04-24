@@ -8,7 +8,7 @@ import com.yelp.android.bento.core.ComponentViewHolder
 import com.yelp.android.bento.utils.inflate
 import nz.co.tsongkha.R
 
-class PostViewHolder : ComponentViewHolder<Nothing?, PostViewProps>() {
+class PostViewHolder : ComponentViewHolder<Nothing?, PostItem>() {
 
     private lateinit var titleTextView: TextView
     private lateinit var bodyTextView: TextView
@@ -20,7 +20,7 @@ class PostViewHolder : ComponentViewHolder<Nothing?, PostViewProps>() {
         }
     }
 
-    override fun bind(presenter: Nothing?, element: PostViewProps) {
+    override fun bind(presenter: Nothing?, element: PostItem) {
         titleTextView.text = element.title
         bodyTextView.text = element.body
     }

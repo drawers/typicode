@@ -8,10 +8,10 @@
     android:layout_margin="16dp"
     android:orientation="vertical">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="20dp">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/startGuideline"
@@ -37,7 +37,7 @@
 
         <TextView
             android:id="@+id/bodyTextView"
-            style="@style/TextAppearance.MaterialComponents.Body1"
+            style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"

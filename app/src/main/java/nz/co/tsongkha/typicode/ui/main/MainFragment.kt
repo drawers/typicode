@@ -13,7 +13,7 @@ import nz.co.tsongkha.R
 import nz.co.tsongkha.typicode.ApplicationScope
 import nz.co.tsongkha.typicode.ViewModelScope
 import nz.co.tsongkha.typicode.ui.main.bento.PostViewHolder
-import nz.co.tsongkha.typicode.ui.main.bento.PostViewProps
+import nz.co.tsongkha.typicode.ui.main.bento.PostItem
 import toothpick.Scope
 import toothpick.ktp.KTP
 import toothpick.ktp.delegate.inject
@@ -38,6 +38,7 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         KTP.openScope(ApplicationScope::class.java)
             .openSubScope(ViewModelScope::class.java) { scope: Scope ->
                 scope.installViewModelBinding<MainViewModel>(this)
@@ -49,10 +50,13 @@ class MainFragment : Fragment() {
 
         val recyclerView = requireView().findViewById<RecyclerView>(R.id.recyclerView)
         val controller = RecyclerViewComponentController(recyclerView)
-        val component = ListComponent<Nothing?, PostViewProps>(
+        val component = ListComponent<Nothing?, PostItem>(
             null,
             PostViewHolder::class.java
-        )
+        ).apply {
+            toggleDivider(false)
+        }
+
         controller.addComponent(component)
 
         viewModel.posts.observe(viewLifecycleOwner, Observer { viewProps ->
