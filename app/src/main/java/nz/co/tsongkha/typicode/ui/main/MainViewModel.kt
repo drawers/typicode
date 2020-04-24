@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import nz.co.tsongkha.typicode.post.domain.Post
 import nz.co.tsongkha.typicode.post.data.PostsRepository
+import nz.co.tsongkha.typicode.ui.main.bento.CommentsSection
 import nz.co.tsongkha.typicode.ui.main.bento.PostItem
 import toothpick.ktp.delegate.inject
 
@@ -29,7 +30,8 @@ class MainViewModel : ViewModel() {
         return PostItem(
             id = id,
             title = title,
-            body = body
+            body = body,
+            commentsSection = CommentsSection.EMPTY
         )
     }
 }

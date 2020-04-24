@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Typicode</string>
+    <string name="down_facing_chevron">Down-facing chevron</string>
 </resources>
