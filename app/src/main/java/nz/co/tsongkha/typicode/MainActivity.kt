@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import nz.co.tsongkha.R
 import nz.co.tsongkha.typicode.ui.main.MainFragment
+import toothpick.ktp.KTP
+import toothpick.ktp.delegate.inject
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 

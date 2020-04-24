@@ -1,4 +1,4 @@
-Using the endpoints available at https://jsonplaceholder.typicode.com/, 
+Using the endpoints available at <https://jsonplaceholder.typicode.com/>, 
 display a list of posts along with the comments associated with each post. 
 
 Feel free to use Kotlin or Java as well as any other libraries of your choice. 
