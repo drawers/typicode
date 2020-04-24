@@ -9,8 +9,10 @@ import io.ktor.client.features.logging.LogLevel
 import io.ktor.client.features.logging.Logging
 import io.ktor.http.URLBuilder
 import io.ktor.http.takeFrom
+import toothpick.InjectConstructor
 import javax.inject.Provider
 
+@InjectConstructor
 internal class HttpClientProvider : Provider<HttpClient> {
 
     override fun get(): HttpClient {
