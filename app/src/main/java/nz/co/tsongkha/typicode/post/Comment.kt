@@ -1,0 +1,9 @@
+package nz.co.tsongkha.typicode.post
+
+data class Comment(
+    val postId: Int,
+    val id: Int,
+    val name: String,
+    val email: String,
+    val body: String
+)

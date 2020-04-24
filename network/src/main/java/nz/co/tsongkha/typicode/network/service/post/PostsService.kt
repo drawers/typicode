@@ -11,4 +11,8 @@ class PostsService(private val httpClient: HttpClient) {
     suspend fun posts(): List<PostDto> {
         return httpClient.get("$BASE_URL/posts")
     }
+
+    suspend fun comments(postId: Int): List<CommentDto> {
+        return httpClient.get("$BASE_URL/posts/$postId/comments")
+    }
 }
