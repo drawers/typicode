@@ -11,6 +11,7 @@ import nz.co.tsongkha.typicode.post.domain.Post
 import nz.co.tsongkha.typicode.post.presentation.bento.CommentItem
 import nz.co.tsongkha.typicode.post.presentation.bento.CommentsSection
 import nz.co.tsongkha.typicode.post.presentation.bento.PostItem
+import toothpick.InjectConstructor
 import toothpick.ktp.delegate.inject
 
 class MainViewModel : ViewModel() {

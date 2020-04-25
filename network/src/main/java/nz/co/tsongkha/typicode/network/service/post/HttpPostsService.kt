@@ -6,7 +6,7 @@ import nz.co.tsongkha.typicode.network.service.BASE_URL
 import toothpick.InjectConstructor
 
 @InjectConstructor
-internal class RealPostsService(private val httpClient: HttpClient) : PostsService {
+internal class HttpPostsService(private val httpClient: HttpClient) : PostsService {
 
     override suspend fun posts(): List<PostDto> {
         return httpClient.get("$BASE_URL/posts")
