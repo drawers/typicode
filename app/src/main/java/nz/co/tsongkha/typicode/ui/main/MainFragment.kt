@@ -12,8 +12,9 @@ import com.yelp.android.bento.components.ListComponent
 import nz.co.tsongkha.R
 import nz.co.tsongkha.typicode.ApplicationScope
 import nz.co.tsongkha.typicode.ViewModelScope
-import nz.co.tsongkha.typicode.ui.main.bento.PostViewHolder
 import nz.co.tsongkha.typicode.ui.main.bento.PostItem
+import nz.co.tsongkha.typicode.ui.main.bento.PostPresenter
+import nz.co.tsongkha.typicode.ui.main.bento.PostViewHolder
 import toothpick.Scope
 import toothpick.ktp.KTP
 import toothpick.ktp.delegate.inject
@@ -50,8 +51,11 @@ class MainFragment : Fragment() {
 
         val recyclerView = requireView().findViewById<RecyclerView>(R.id.recyclerView)
         val controller = RecyclerViewComponentController(recyclerView)
-        val component = ListComponent<Nothing?, PostItem>(
-            null,
+
+        val component = ListComponent(
+            PostPresenter {
+                viewModel.loadComments(it)
+            },
             PostViewHolder::class.java
         ).apply {
             toggleDivider(false)
