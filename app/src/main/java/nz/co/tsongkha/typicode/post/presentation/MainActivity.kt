@@ -1,4 +1,4 @@
-package nz.co.tsongkha.typicode
+package nz.co.tsongkha.typicode.post.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

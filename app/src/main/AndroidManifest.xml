@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:name="nz.co.tsongkha.typicode.TypicodeApplication"
         android:theme="@style/AppTheme">
-        <activity android:name="nz.co.tsongkha.typicode.MainActivity">
+        <activity android:name="nz.co.tsongkha.typicode.post.presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
