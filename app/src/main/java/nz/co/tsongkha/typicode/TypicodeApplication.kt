@@ -1,6 +1,7 @@
 package nz.co.tsongkha.typicode
 
 import android.app.Application
+import nz.co.tsongkha.typicode.common.ApplicationScope
 import nz.co.tsongkha.typicode.network.networkModule
 import nz.co.tsongkha.typicode.post.data.postsDataModule
 import toothpick.ktp.KTP

@@ -1,4 +1,4 @@
-package nz.co.tsongkha.typicode
+package nz.co.tsongkha.typicode.common
 
 import javax.inject.Scope
 

@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.yelp.android.bento.componentcontrollers.RecyclerViewComponentController
 import com.yelp.android.bento.components.ListComponent
 import nz.co.tsongkha.R
-import nz.co.tsongkha.typicode.ApplicationScope
-import nz.co.tsongkha.typicode.ViewModelScope
+import nz.co.tsongkha.typicode.common.ApplicationScope
+import nz.co.tsongkha.typicode.common.ViewModelScope
 import nz.co.tsongkha.typicode.post.presentation.bento.PostPresenter
 import nz.co.tsongkha.typicode.post.presentation.bento.PostViewHolder
 import toothpick.Scope
