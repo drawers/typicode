@@ -1,4 +1,4 @@
-package nz.co.tsongkha.typicode.ui.main
+package nz.co.tsongkha.typicode.post.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,9 +12,8 @@ import com.yelp.android.bento.components.ListComponent
 import nz.co.tsongkha.R
 import nz.co.tsongkha.typicode.ApplicationScope
 import nz.co.tsongkha.typicode.ViewModelScope
-import nz.co.tsongkha.typicode.ui.main.bento.PostItem
-import nz.co.tsongkha.typicode.ui.main.bento.PostPresenter
-import nz.co.tsongkha.typicode.ui.main.bento.PostViewHolder
+import nz.co.tsongkha.typicode.post.presentation.bento.PostPresenter
+import nz.co.tsongkha.typicode.post.presentation.bento.PostViewHolder
 import toothpick.Scope
 import toothpick.ktp.KTP
 import toothpick.ktp.delegate.inject

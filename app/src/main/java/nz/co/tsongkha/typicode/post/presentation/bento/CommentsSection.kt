@@ -1,4 +1,4 @@
-package nz.co.tsongkha.typicode.ui.main.bento
+package nz.co.tsongkha.typicode.post.presentation.bento
 
 data class CommentsSection(
     val state: State,

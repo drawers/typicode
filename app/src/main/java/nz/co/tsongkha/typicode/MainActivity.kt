@@ -3,7 +3,7 @@ package nz.co.tsongkha.typicode
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import nz.co.tsongkha.R
-import nz.co.tsongkha.typicode.ui.main.MainFragment
+import nz.co.tsongkha.typicode.post.presentation.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

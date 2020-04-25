@@ -1,4 +1,4 @@
-package nz.co.tsongkha.typicode.ui.main
+package nz.co.tsongkha.typicode.post.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,9 +8,9 @@ import kotlinx.coroutines.launch
 import nz.co.tsongkha.typicode.post.data.PostsRepository
 import nz.co.tsongkha.typicode.post.domain.Comment
 import nz.co.tsongkha.typicode.post.domain.Post
-import nz.co.tsongkha.typicode.ui.main.bento.CommentItem
-import nz.co.tsongkha.typicode.ui.main.bento.CommentsSection
-import nz.co.tsongkha.typicode.ui.main.bento.PostItem
+import nz.co.tsongkha.typicode.post.presentation.bento.CommentItem
+import nz.co.tsongkha.typicode.post.presentation.bento.CommentsSection
+import nz.co.tsongkha.typicode.post.presentation.bento.PostItem
 import toothpick.ktp.delegate.inject
 
 class MainViewModel : ViewModel() {
