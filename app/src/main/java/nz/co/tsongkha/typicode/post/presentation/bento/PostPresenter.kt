@@ -3,11 +3,16 @@ package nz.co.tsongkha.typicode.post.presentation.bento
 import com.yelp.android.bento.components.ListComponent
 import com.yelp.android.bento.core.Component
 
-class PostPresenter(private val loadComments: (Int) -> Unit) {
+class PostPresenter(
+    private val loadComments: (Int) -> Unit,
+    private val hideComments: (Int) -> Unit
+) {
 
     fun onClick(postItem: PostItem) {
         when (postItem.commentsSection) {
-            is CommentsSection.Loaded,
+            is CommentsSection.Loaded -> {
+                hideComments(postItem.id)
+            }
             CommentsSection.Loading -> {
                 return
             }

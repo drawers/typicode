@@ -52,9 +52,14 @@ class MainFragment : Fragment() {
         val controller = RecyclerViewComponentController(recyclerView)
 
         val component = ListComponent(
-            PostPresenter {
-                viewModel.loadComments(it)
-            },
+            PostPresenter(
+                {
+                    viewModel.loadComments(it)
+                },
+                {
+                    viewModel.hideComments(it)
+                }
+            ),
             PostViewHolder::class.java
         ).apply {
             toggleDivider(false)

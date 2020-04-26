@@ -43,6 +43,12 @@ class MainViewModel : ViewModel() {
         }
     }
 
+    fun hideComments(id: Int) {
+        update(id) {
+            copy(commentsSection = CommentsSection.Empty)
+        }
+    }
+
     private fun Post.toItem(): PostItem {
         return PostItem(
             id = id,

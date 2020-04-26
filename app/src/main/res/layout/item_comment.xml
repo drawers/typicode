@@ -6,6 +6,8 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="64dp"
     android:orientation="vertical"
+    android:clickable="false"
+    android:focusable="false"
     android:padding="8dp">
 
     <TextView
