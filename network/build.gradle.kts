@@ -32,15 +32,17 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("androidx.core:core-ktx:1.2.0")
 
-    implementation("io.ktor:ktor-client-android:1.3.2")
-    implementation("io.ktor:ktor-client-logging-jvm:1.3.2")
-    implementation("io.ktor:ktor-client-json-jvm:1.3.2")
-    implementation("io.ktor:ktor-client-gson:1.3.2")
-    implementation("io.ktor:ktor-client-mock:1.3.2")
-    implementation("io.ktor:ktor-client-mock-jvm:1.3.2")
+    val ktorVersion = "1.3.2"
+    implementation("io.ktor:ktor-client-android:$ktorVersion")
+    implementation("io.ktor:ktor-client-logging-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-client-json-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-client-gson:$ktorVersion")
+    implementation("io.ktor:ktor-client-mock:$ktorVersion")
+    implementation("io.ktor:ktor-client-mock-jvm:$ktorVersion")
 
-    implementation("com.github.stephanenicolas.toothpick:ktp:3.1.0")
-    kapt("com.github.stephanenicolas.toothpick:toothpick-compiler:3.1.0")
+    val toothpickVersion = "3.1.0"
+    implementation("com.github.stephanenicolas.toothpick:ktp:$toothpickVersion")
+    kapt("com.github.stephanenicolas.toothpick:toothpick-compiler:$toothpickVersion")
 
     testImplementation("junit:junit:4.13")
 
