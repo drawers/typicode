@@ -7,7 +7,6 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.yelp.android.bento.componentcontrollers.RecyclerViewComponentController
-import com.yelp.android.bento.components.ListComponent
 import com.yelp.android.bento.core.ComponentViewHolder
 import com.yelp.android.bento.utils.inflate
 import nz.co.tsongkha.R

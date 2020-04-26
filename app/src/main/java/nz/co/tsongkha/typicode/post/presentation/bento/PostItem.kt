@@ -5,4 +5,8 @@ data class PostItem(
     val title: String,
     val body: String,
     val commentsSection: CommentsSection
-)
+) {
+    fun loading(): PostItem = copy(
+        commentsSection = CommentsSection.Loading
+    )
+}

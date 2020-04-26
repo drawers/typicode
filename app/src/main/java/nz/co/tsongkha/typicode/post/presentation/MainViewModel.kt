@@ -30,22 +30,33 @@ class MainViewModel : ViewModel() {
 
     fun loadComments(id: Int) {
         viewModelScope.launch {
-            val comments = postsRepository.comments(id)
-            val commentsSection = comments.toCommentsSection()
             val posts = _posts.value
-            val updatedPosts = posts?.map {
+            val loadingPosts = posts?.map {
                 when (it.id) {
                     id -> {
-                        it.copy(
-                            commentsSection = commentsSection
-                        )
+                        it.copy(commentsSection = CommentsSection.Loading)
                     }
                     else -> {
                         it
                     }
                 }
             }
-            _posts.value = updatedPosts
+            _posts.value = loadingPosts
+
+            val comments = postsRepository.comments(id)
+            val commentsSection = comments.toCommentsSection()
+
+            val loadedPosts = posts?.map {
+                when (it.id) {
+                    id -> {
+                        it.copy(commentsSection = commentsSection)
+                    }
+                    else -> {
+                        it
+                    }
+                }
+            }
+            _posts.value = loadedPosts
         }
     }
 
