@@ -26,8 +26,10 @@ class MainViewModelTest : StringSpec() {
     private lateinit var capturedItems: MutableList<List<PostItem>>
 
     private val testListener = object : TestListener {
+
         override suspend fun beforeTest(testCase: TestCase) {
             super.beforeTest(testCase)
+
             viewModel = MainViewModel()
             KTP.openScope(this)
                 .installModules(
@@ -37,8 +39,8 @@ class MainViewModelTest : StringSpec() {
                     inject(viewModel)
                 }
 
-            itemsObserver = mockk<Observer<List<PostItem>>>(relaxed = true)
-            capturedItems = mutableListOf<List<PostItem>>()
+            itemsObserver = mockk(relaxed = true)
+            capturedItems = mutableListOf()
             every {
                 itemsObserver.onChanged(capture(capturedItems))
             } answers { }
