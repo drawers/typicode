@@ -30,33 +30,16 @@ class MainViewModel : ViewModel() {
 
     fun loadComments(id: Int) {
         viewModelScope.launch {
-            val posts = _posts.value
-            val loadingPosts = posts?.map {
-                when (it.id) {
-                    id -> {
-                        it.copy(commentsSection = CommentsSection.Loading)
-                    }
-                    else -> {
-                        it
-                    }
-                }
+            update(id) {
+                copy(commentsSection = CommentsSection.Loading)
             }
-            _posts.value = loadingPosts
 
             val comments = postsRepository.comments(id)
             val commentsSection = comments.toCommentsSection()
 
-            val loadedPosts = posts?.map {
-                when (it.id) {
-                    id -> {
-                        it.copy(commentsSection = commentsSection)
-                    }
-                    else -> {
-                        it
-                    }
-                }
+            update(id) {
+                copy(commentsSection = commentsSection)
             }
-            _posts.value = loadedPosts
         }
     }
 
@@ -83,5 +66,23 @@ class MainViewModel : ViewModel() {
             email = email,
             body = body
         )
+    }
+
+    /**
+     * Update matching member of the list and post the update to LiveData
+     */
+    private fun update(id: Int, update: PostItem.() -> PostItem) {
+        val current = _posts.value ?: return
+        val updated = current.map {
+            when (it.id) {
+                id -> {
+                    it.update()
+                }
+                else -> {
+                    it
+                }
+            }
+        }
+        _posts.value = updated
     }
 }
