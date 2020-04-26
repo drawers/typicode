@@ -1,40 +1,40 @@
-apply plugin: "com.android.application"
-
-apply plugin: "kotlin-android"
-
-apply plugin: "kotlin-android-extensions"
-
-apply plugin: "kotlin-kapt"
+plugins {
+    id("com.android.application")
+    kotlin("android")
+    kotlin("android.extensions")
+    id("kotlin-kapt")
+}
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion(29)
+    buildToolsVersion("29.0.3")
     defaultConfig {
-        applicationId "nz.co.tsongkha.typicode"
-        minSdkVersion 24
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationId = "nz.co.tsongkha.typicode"
+        minSdkVersion(24)
+        targetSdkVersion(29)
+        versionCode = 1
+        versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        getByName("release") {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-    testOptions {
-        unitTests.all {
-            useJUnitPlatform()
-        }
-    }
+
     packagingOptions {
         exclude("META-INF/*.kotlin_module")
     }
 }
 
+tasks.withType<Test> {
+    useJUnitPlatform()
+}
+
 dependencies {
-    implementation(fileTree(dir: "libs", include: ["*.jar"]))
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72")
 
     implementation(project(":network"))
