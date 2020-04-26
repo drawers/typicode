@@ -4,6 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.yelp.android.bento.componentcontrollers.RecyclerViewComponentController
 import com.yelp.android.bento.components.ListComponent
@@ -13,7 +14,7 @@ import nz.co.tsongkha.R
 
 class PostViewHolder : ComponentViewHolder<PostPresenter, PostItem>() {
 
-    private lateinit var cardView: CardView
+    private lateinit var constraintLayout: ConstraintLayout
 
     private lateinit var titleTextView: TextView
 
@@ -23,7 +24,7 @@ class PostViewHolder : ComponentViewHolder<PostPresenter, PostItem>() {
 
     override fun inflate(parent: ViewGroup): View {
         return parent.inflate<CardView>(R.layout.item_post).apply {
-            cardView = this
+            constraintLayout = findViewById(R.id.postConstraintLayout)
             titleTextView = findViewById(R.id.titleTextView)
             bodyTextView = findViewById(R.id.bodyTextView)
             commentsRecyclerView = findViewById(R.id.commentsRecyclerView)
@@ -31,19 +32,25 @@ class PostViewHolder : ComponentViewHolder<PostPresenter, PostItem>() {
     }
 
     override fun bind(presenter: PostPresenter, element: PostItem) {
-        cardView.setOnClickListener {
-            presenter.onPostClick(element.id)
+        constraintLayout.setOnClickListener {
+            if (element.commentsSection.state == CommentsSection.State.CONTRACTED) {
+                presenter.onPostClick(element.id)
+            }
         }
 
         titleTextView.text = element.title
         bodyTextView.text = element.body
 
         val controller = RecyclerViewComponentController(commentsRecyclerView)
-        val component = ListComponent<Nothing?, CommentItem>(
+
+        val loadingComponent = LoadingComponent()
+
+        val commentsComponent = ListComponent<Nothing?, CommentItem>(
             null,
             CommentViewHolder::class.java
         )
-        controller.addComponent(component)
-        component.setData(element.commentsSection.comments)
+        controller.addComponent(loadingComponent)
+        controller.addComponent(commentsComponent)
+        commentsComponent.setData(element.commentsSection.comments)
     }
 }

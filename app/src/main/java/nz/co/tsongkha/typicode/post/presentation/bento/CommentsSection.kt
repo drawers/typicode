@@ -9,9 +9,14 @@ data class CommentsSection(
             state = State.CONTRACTED,
             comments = emptyList()
         )
+
+        val LOADING = CommentsSection(
+            state = State.LOADING,
+            comments = emptyList()
+        )
     }
 
     enum class State {
-        EXPANDED, CONTRACTED
+        CONTRACTED, LOADING, EXPANDED
     }
 }
