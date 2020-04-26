@@ -11,7 +11,6 @@ import nz.co.tsongkha.typicode.post.domain.Post
 import nz.co.tsongkha.typicode.post.presentation.bento.CommentItem
 import nz.co.tsongkha.typicode.post.presentation.bento.CommentsSection
 import nz.co.tsongkha.typicode.post.presentation.bento.PostItem
-import toothpick.InjectConstructor
 import toothpick.ktp.delegate.inject
 
 class MainViewModel : ViewModel() {
@@ -55,13 +54,12 @@ class MainViewModel : ViewModel() {
             id = id,
             title = title,
             body = body,
-            commentsSection = CommentsSection.EMPTY
+            commentsSection = CommentsSection.Empty
         )
     }
 
     private fun List<Comment>.toCommentsSection(): CommentsSection {
-        return CommentsSection(
-            state = CommentsSection.State.EXPANDED,
+        return CommentsSection.Loaded(
             comments = this.map { it.toItem() }
         )
     }

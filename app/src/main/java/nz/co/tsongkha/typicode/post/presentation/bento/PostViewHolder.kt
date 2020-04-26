@@ -33,24 +33,13 @@ class PostViewHolder : ComponentViewHolder<PostPresenter, PostItem>() {
 
     override fun bind(presenter: PostPresenter, element: PostItem) {
         constraintLayout.setOnClickListener {
-            if (element.commentsSection.state == CommentsSection.State.CONTRACTED) {
-                presenter.onPostClick(element.id)
-            }
+            presenter.onClick(element)
         }
 
         titleTextView.text = element.title
         bodyTextView.text = element.body
 
         val controller = RecyclerViewComponentController(commentsRecyclerView)
-
-        val loadingComponent = LoadingComponent()
-
-        val commentsComponent = ListComponent<Nothing?, CommentItem>(
-            null,
-            CommentViewHolder::class.java
-        )
-        controller.addComponent(loadingComponent)
-        controller.addComponent(commentsComponent)
-        commentsComponent.setData(element.commentsSection.comments)
+        controller.addAll(presenter.components(element))
     }
 }

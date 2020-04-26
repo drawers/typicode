@@ -1,22 +1,10 @@
 package nz.co.tsongkha.typicode.post.presentation.bento
 
-data class CommentsSection(
-    val state: State,
-    val comments: List<CommentItem>
-) {
-    companion object {
-        val EMPTY = CommentsSection(
-            state = State.CONTRACTED,
-            comments = emptyList()
-        )
+sealed class CommentsSection {
 
-        val LOADING = CommentsSection(
-            state = State.LOADING,
-            comments = emptyList()
-        )
-    }
+    object Empty : CommentsSection()
 
-    enum class State {
-        CONTRACTED, LOADING, EXPANDED
-    }
+    object Loading : CommentsSection()
+
+    data class Loaded(val comments: List<CommentItem>) : CommentsSection()
 }
