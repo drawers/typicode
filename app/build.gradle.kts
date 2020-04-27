@@ -1,3 +1,13 @@
+import nz.co.typicode.buildsrc.SharedConfig
+import nz.co.typicode.buildsrc.SharedConfig.Android.buildToolsVersion
+import nz.co.typicode.buildsrc.SharedConfig.Android.compileSdkVersion
+import nz.co.typicode.buildsrc.SharedConfig.Android.minSdkVersion
+import nz.co.typicode.buildsrc.SharedConfig.Android.targetSdkVersion
+import nz.co.typicode.buildsrc.SharedConfig.Dependencies.bentoVersion
+import nz.co.typicode.buildsrc.SharedConfig.Dependencies.coroutinesVersion
+import nz.co.typicode.buildsrc.SharedConfig.Dependencies.kotestVersion
+import nz.co.typicode.buildsrc.SharedConfig.Dependencies.lifecycleVersion
+import nz.co.typicode.buildsrc.SharedConfig.Dependencies.toothpickVersion
 import nz.co.typicode.buildsrc.SharedConfig.Kotlin.kotlinVersion
 
 plugins {
@@ -8,12 +18,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion(29)
-    buildToolsVersion("29.0.3")
+    compileSdkVersion(SharedConfig.Android.compileSdkVersion)
+    buildToolsVersion(SharedConfig.Android.buildToolsVersion)
     defaultConfig {
         applicationId = "nz.co.tsongkha.typicode"
-        minSdkVersion(24)
-        targetSdkVersion(29)
+        minSdkVersion(SharedConfig.Android.minSdkVersion)
+        targetSdkVersion(SharedConfig.Android.targetSdkVersion)
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -41,11 +51,9 @@ dependencies {
 
     implementation(project(":network"))
 
-    val bentoVersion = "15.8.0"
     implementation("com.yelp.android:bento:$bentoVersion")
     androidTestImplementation("com.yelp.android:bento-testing:$bentoVersion")
 
-    val coroutinesVersion = "1.3.5"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
@@ -57,17 +65,14 @@ dependencies {
     implementation("com.google.android.material:material:1.1.0")
     implementation("com.facebook.shimmer:shimmer:0.5.0")
 
-    val lifecycleVersion = "2.2.0"
     implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
 
-    val toothpickVersion = "3.1.0"
     implementation("com.github.stephanenicolas.toothpick:ktp:$toothpickVersion")
     implementation("com.github.stephanenicolas.toothpick:smoothie-lifecycle-viewmodel-ktp:$toothpickVersion")
     implementation("com.github.stephanenicolas.toothpick:smoothie-lifecycle-ktp:$toothpickVersion")
     kapt("com.github.stephanenicolas.toothpick:toothpick-compiler:$toothpickVersion")
 
-    val kotestVersion = "4.0.4"
     testImplementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
     testImplementation("io.kotest:kotest-assertions-core-jvm:$kotestVersion")
     testImplementation("io.kotest:kotest-property-jvm:$kotestVersion")
