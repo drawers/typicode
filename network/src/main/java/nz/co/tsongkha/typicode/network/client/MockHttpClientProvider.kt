@@ -43,7 +43,7 @@ class MockHttpClientProvider : Provider<HttpClient> {
                                 "/posts/.+/comments"
                             )
                         ) -> {
-                            val body = File("..network/src/main/java/nz/co/tsongkha/typicode/network/client/comments.json").readBytes()
+                            val body = File("../network/src/main/java/nz/co/tsongkha/typicode/network/client/comments.json").readBytes()
                             respond(
                                 content = body,
                                 status = HttpStatusCode.OK,
