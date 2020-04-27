@@ -1,5 +1,6 @@
 package nz.co.tsongkha.typicode.post.presentation.bento
 
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView

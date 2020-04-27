@@ -9,7 +9,7 @@
     android:layout_margin="16dp"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <nz.co.tsongkha.typicode.post.presentation.TouchConsumingConstraintLayout
         android:id="@+id/postConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,6 +64,6 @@
             app:layout_constraintStart_toStartOf="@id/startGuideline"
             app:layout_constraintTop_toBottomOf="@id/bodyTextView" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </nz.co.tsongkha.typicode.post.presentation.TouchConsumingConstraintLayout>
 
 </androidx.cardview.widget.CardView>
