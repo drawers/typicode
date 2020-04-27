@@ -1,3 +1,5 @@
+import nz.co.typicode.buildsrc.SharedConfig.Kotlin.kotlinVersion
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -35,7 +37,7 @@ tasks.withType<Test> {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
 
     implementation(project(":network"))
 
@@ -74,4 +76,5 @@ dependencies {
 
     androidTestImplementation("androidx.test.ext:junit:1.1.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+    implementation("com.google.code.findbugs:jsr305:3.0.2")
 }

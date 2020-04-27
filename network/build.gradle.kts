@@ -1,3 +1,5 @@
+import nz.co.typicode.buildsrc.SharedConfig.Kotlin.kotlinVersion
+
 plugins {
     id("com.android.library")
     kotlin("android")
@@ -28,7 +30,7 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
     implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("androidx.core:core-ktx:1.2.0")
 
