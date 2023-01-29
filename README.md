@@ -1,4 +1,4 @@
-# Typicode sample
+# Toy app that calls Typicode API
 
 ## Features
 * Posts/comments with loading animation 
@@ -7,6 +7,3 @@
 * Medium sized test (`MainViewModelTest.kt`)
 * Build script in Kotlin
 * Ktor for networking
-
-Video here:
-https://youtu.be/Hpp_Gc87z3A
